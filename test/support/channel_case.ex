@@ -16,7 +16,7 @@ defmodule ClaimWeb.ChannelCase do
   """
 
   use ExUnit.CaseTemplate
-  alias Ecto.Adapters.SQL
+  alias Ecto.Adapters.SQL.Sandbox
 
   using do
     quote do
@@ -29,7 +29,7 @@ defmodule ClaimWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = SQL.Sandbox.checkout(Claim.Repo)
+    :ok = Sandbox.checkout(Claim.Repo)
 
     unless tags[:async] do
       Sandbox.mode(Claim.Repo, {:shared, self()})
