@@ -1,11 +1,15 @@
 defmodule Claim.Admin do
+  @moduledoc """
+  this is module that have  schema of the admin
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
   schema "administrators" do
-    field :email, :string
-    field :name, :string
-    field :password_hash, :string
+    field :email, :string, null: false
+    field :name, :string, null: false
+    field :password_hash, :string, null: false
 
     timestamps()
   end
