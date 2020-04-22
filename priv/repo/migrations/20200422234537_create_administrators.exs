@@ -9,6 +9,5 @@ defmodule Claim.Repo.Migrations.CreateAdministrators do
 
       timestamps()
     end
-
   end
 end
