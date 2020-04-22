@@ -1,5 +1,5 @@
 # Elixir CircleCI 2.0 configuration file
-# https://onboarding.circleci.com/project-setup/github/gissandrogama/claim
+# https://app.circleci.com/pipelines/github/gissandrogama/claim
 #
 # Check https://circleci.com/docs/2.0/language-elixir/ for more details
 version: 2
