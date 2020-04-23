@@ -5,7 +5,9 @@ defmodule ClaimWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", ClaimWeb do
+  scope "/api/v1", ClaimWeb do
     pipe_through :api
+
+    post("/admin/sign_in", Admin.SessionController, :create)
   end
 end
