@@ -2,10 +2,13 @@ defmodule ClaimWeb.Admin.SessionController do
   use ClaimWeb, :controller
 
   alias Claim.SignInAdmin
+  alias ClaimWeb.Guardian
 
   def create(conn, %{"email" => email, "password" => password}) do
     case SignInAdmin.run(email, password) do
-      {:ok, admin} -> render(conn, "session.json", %{admin: admin})
+      {:ok, admin} ->
+        {:ok, token, _} = Guardian.encode_and_sign(admin)
+        render(conn, "session.json", %{admin: admin, token: token})
 
       {:error, _} ->
         conn
