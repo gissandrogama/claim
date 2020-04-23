@@ -13,5 +13,4 @@ defmodule Claim.Admin do
 
     timestamps()
   end
-
 end
