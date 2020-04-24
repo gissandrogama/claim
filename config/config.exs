@@ -30,6 +30,10 @@ config :claim, ClaimWeb.Guardian,
   issuer: "claim_web",
   secret_key: "OfwgzJo085F8LR5h//HG1s0hzLNUC2WT0jppYX07uraPIsMBpY3CrVyKy+nI+Tdy"
 
+config :claim, ClaimWeb.AuthAccessPipeline,
+  module: ClaimWeb.Guardian,
+  error_handler: ClaimWeb.AuthErrorHandler
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
