@@ -9,7 +9,7 @@ defmodule Claim.Election do
     field :name, :string
     field :notice, :string
     field :starts_at, :utc_datetime
-    belongs_to :create_by, Admin
+    belongs_to :created_by, Admin
 
     timestamps()
   end
