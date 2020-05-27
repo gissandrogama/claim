@@ -1,6 +1,6 @@
 defmodule Claim.SignInAdmin do
   @moduledoc """
-  Signing in as admin 
+  Signing in as admin
   """
 
   alias Claim.{Admin, Repo}

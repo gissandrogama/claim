@@ -3,9 +3,9 @@ defmodule Claim.Repo.Migrations.CreateAdministrators do
 
   def change do
     create table(:administrators) do
-      add :name, :string
-      add :email, :string
-      add :password_hash, :string
+      add :name, :string, null: false
+      add :email, :string, null: false
+      add :password_hash, :string, null: false
 
       timestamps()
     end
