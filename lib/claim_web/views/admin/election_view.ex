@@ -1,4 +1,4 @@
-defmodule ClaimWeb.ElectionView do
+defmodule ClaimWeb.Admin.ElectionView do
   use ClaimWeb, :view
 
   def render("election.json", %{election: election}) do

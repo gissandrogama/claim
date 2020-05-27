@@ -44,7 +44,8 @@ defmodule Claim.MixProject do
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:ex_machina, "~> 2.4", only: :test},
       {:guardian, "~> 2.0"},
-      {:bcrypt_elixir, "~> 2.0"}
+      {:bcrypt_elixir, "~> 2.0"},
+      {:calendar, "~> 1.0.0"}
     ]
   end
 

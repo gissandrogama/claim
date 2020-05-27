@@ -1,4 +1,4 @@
-defmodule ClaimWeb.ElectionController do
+defmodule ClaimWeb.Admin.ElectionController do
   use ClaimWeb, :controller
 
   alias Claim.CreateElection

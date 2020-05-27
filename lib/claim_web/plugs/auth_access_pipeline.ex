@@ -1,4 +1,7 @@
 defmodule ClaimWeb.AuthAccessPipeline do
+  @moduledoc """
+  AuthAccessPipeline
+  """
   use Guardian.Plug.Pipeline, otp_app: :claim
 
   plug Guardian.Plug.VerifyHeader
