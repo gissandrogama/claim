@@ -1,4 +1,7 @@
 defmodule Claim.Election do
+  @moduledoc """
+  Schema da da tabela elecions 
+  """
   use Ecto.Schema
 
   alias Claim.Admin

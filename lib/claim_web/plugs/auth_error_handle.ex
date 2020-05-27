@@ -1,4 +1,7 @@
 defmodule ClaimWeb.AuthErrorHandler do
+  @moduledoc """
+  Modulo para retornar erro do plug de autenticação
+  """
   import Plug.Conn
 
   @behaviour Guardian.Plug.ErrorHandler

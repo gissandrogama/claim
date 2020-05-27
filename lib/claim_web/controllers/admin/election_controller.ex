@@ -2,9 +2,10 @@ defmodule ClaimWeb.Admin.ElectionController do
   use ClaimWeb, :controller
 
   alias Claim.CreateElection
+  alias ClaimWeb.Guardian.Plug
 
   def create(conn, params) do
-    admin = ClaimWeb.Guardian.Plug.current_resource(conn)
+    admin = Plug.current_resource(conn)
     params = Map.put(params, "created_by_id", admin.id)
 
     case CreateElection.run(params) do
