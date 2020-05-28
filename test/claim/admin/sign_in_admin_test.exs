@@ -12,7 +12,7 @@ defmodule Claim.SignInAdminTest do
     end
 
     test "returns ok when email and password match" do
-      assert {:ok, %Admin{}} = SignInAdmin.run("kiba@gmail.com", "123456")
+      assert {:ok, %Admin{}} = SignInAdmin.run("henrygama@gmail.com", "123123")
     end
 
     test "returns error when there is no admin with this email" do
