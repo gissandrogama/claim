@@ -12,7 +12,10 @@ defmodule ClaimWeb.Admin.SessionControllerTest do
 
     test "returns 200 when admin credentials are valid", %{conn: conn} do
       conn =
-        post(conn, "/api/v1/admin/sign_in", %{"email" => "henrygama@gmail.com", "password" => "123123"})
+        post(conn, "/api/v1/admin/sign_in", %{
+          "email" => "henrygama@gmail.com",
+          "password" => "123123"
+        })
 
       assert %{"status" => "ok", "data" => %{"name" => "Henry Gama", "token" => _}} =
                json_response(conn, 200)

@@ -9,7 +9,6 @@ defmodule ClaimWeb.Admin.ElectionControllerTest do
   end
 
   describe "create/2" do
-
     test "returns 201 when election is created sucessfully", %{conn: conn} do
       params = %{
         "name" => "Eleição 2020/06",
