@@ -23,4 +23,15 @@ defmodule Claim.Factory do
       created_by: build(:admin)
     }
   end
+
+  def election_factory do
+    %Claim.Election{
+      name: "Election 2020",
+      cover: "http-to-an-image",
+      notice: "http-to-an-pdf",
+      starts_at: ~U[2020-04-24 08:00:00Z],
+      ends_at: ~U[2020-04-30 20:59:59Z],
+      created_by: build(:admin)
+    }
+  end
 end
