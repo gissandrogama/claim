@@ -45,7 +45,13 @@ defmodule Claim.MixProject do
       {:ex_machina, "~> 2.4", only: :test},
       {:guardian, "~> 2.0"},
       {:bcrypt_elixir, "~> 2.0"},
-      {:calendar, "~> 1.0.0"}
+      {:calendar, "~> 1.0.0"},
+      {:ex_aws, "~> 2.1"},
+      {:ex_aws_s3, "~> 2.0"},
+      {:hackney, "~> 1.9"},
+      {:sweet_xml, " ~> 0.6 "},
+      {:uuid, "~> 1.1"},
+      {:mimic, "~> 1.2", only: :test}
     ]
   end
 
