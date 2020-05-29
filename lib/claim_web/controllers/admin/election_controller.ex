@@ -4,7 +4,8 @@ defmodule ClaimWeb.Admin.ElectionController do
   alias Claim.{CreateElection, ElectionRepo, UpdateElection}
   alias ClaimWeb.Guardian.Plug, as: GuardianPlug
 
-  def create(conn, params) do
+
+def create(conn, params) do
     admin = GuardianPlug.current_resource(conn)
     params = Map.put(params, "created_by_id", admin.id)
 
