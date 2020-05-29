@@ -2,6 +2,7 @@ defmodule ClaimWeb.Admin.ElectionControllerTest do
   use ClaimWeb.ConnCase, async: true
 
   import ClaimWeb.AdminAuth
+  import Claim.Factory
 
   setup %{conn: conn} do
     conn = authenticate(conn)
@@ -32,6 +33,26 @@ defmodule ClaimWeb.Admin.ElectionControllerTest do
       }
 
       conn = post(conn, "/api/v1/elections", params)
+      assert %{"status" => "unprocessable entity"} = json_response(conn, 422)
+    end
+  end
+
+  describe "update/2" do
+    test "returns 200 when election is updated successfully", %{conn: conn} do
+      election = insert(:election)
+      params = %{"name" => "Election 2020"}
+
+      conn = put(conn, "/api/v1/elections/#{election.id}", params)
+
+      assert %{"status" => "ok", "data" => %{"name" => "Election 2020"}} =
+               json_response(conn, 200)
+    end
+
+    test "returns 422 when params are invalid", %{conn: conn} do
+      election = insert(:election)
+      params = %{"name" => ""}
+
+      conn = put(conn, "/api/v1/elections/#{election.id}", params)
       assert %{"status" => "unprocessable entity"} = json_response(conn, 422)
     end
   end
