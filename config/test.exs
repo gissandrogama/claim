@@ -18,3 +18,5 @@ config :claim, ClaimWeb.Endpoint,
 config :logger, level: :warn
 
 config :bcrypt_elixir, :log_rounds, 4
+
+config :claim, file_module: Claim.FakeFile

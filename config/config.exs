@@ -34,6 +34,12 @@ config :claim, ClaimWeb.AuthAccessPipeline,
   module: ClaimWeb.Guardian,
   error_handler: ClaimWeb.AuthErrorHandler
 
+config :ex_aws,
+  region: "us-east-2",
+  json_codec: Jason
+
+config :claim, uploads_bucket: "claimimagens", file_module: File
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

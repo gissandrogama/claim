@@ -19,6 +19,7 @@ defmodule ClaimWeb.Router do
   scope "/api/v1", ClaimWeb do
     pipe_through :api_as_admin
 
-    post("/elections", Admin.ElectionController, :create)
+    resources("/elections", Admin.ElectionController, only: [:create, :update, :index])
+    post("/uploads", Admin.UploadController, :create)
   end
 end

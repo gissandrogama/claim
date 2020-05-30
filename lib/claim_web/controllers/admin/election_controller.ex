@@ -1,10 +1,15 @@
 defmodule ClaimWeb.Admin.ElectionController do
   use ClaimWeb, :controller
 
-  alias Claim.CreateElection
+  alias Claim.{CreateElection, ElectionRepo, ListElections, UpdateElection}
   alias ClaimWeb.Guardian.Plug, as: GuardianPlug
 
-def create(conn, params) do
+  def index(conn, _params) do
+    elections = ListElections.run()
+    render(conn, "index.json", %{elections: elections})
+  end
+
+  def create(conn, params) do
     admin = GuardianPlug.current_resource(conn)
     params = Map.put(params, "created_by_id", admin.id)
 
@@ -13,6 +18,20 @@ def create(conn, params) do
         conn
         |> put_status(201)
         |> render("election.json", %{election: election})
+
+      {:error, _} ->
+        conn
+        |> put_status(422)
+        |> json(%{status: "unprocessable entity"})
+    end
+  end
+
+  def update(conn, %{"id" => election_id} = params) do
+    election = ElectionRepo.get_election!(election_id)
+
+    case UpdateElection.run(election, params) do
+      {:ok, election} ->
+        render(conn, "election.json", %{election: election})
 
       {:error, _} ->
         conn
