@@ -1,8 +1,13 @@
 defmodule ClaimWeb.Admin.ElectionController do
   use ClaimWeb, :controller
 
-  alias Claim.{CreateElection, ElectionRepo, UpdateElection}
+  alias Claim.{CreateElection, ElectionRepo, ListElections, UpdateElection}
   alias ClaimWeb.Guardian.Plug, as: GuardianPlug
+
+  def index(conn, _params) do
+    elections = ListElections.run()
+    render(conn, "index.json", %{elections: elections})
+  end
 
   def create(conn, params) do
     admin = GuardianPlug.current_resource(conn)
